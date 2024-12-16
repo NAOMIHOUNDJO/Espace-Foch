@@ -1,77 +1,462 @@
-/* général */
+/*----------------------------général------------------------------------------*/
+@font-face
+{
+	font-family:"cookie";
+	src:
+	url("../FONT/Cookie/Cookie-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../FONT/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../FONT/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
-    font-family: 'Arial', sans-serif; /* Police principale */
-    font-size: 16px; 
-    line-height: 1.6; /* Hauteur de ligne */
-    color: #4b2c20; /* Texte principal */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; 
+    line-height: 1.6;
+    color: #4b2c20; 
     background-color: #F1F2E9; 
     margin: 0;
     padding: 0;
+    
 }
 
+h1{
+  font-family: 'Cookie', cursive;
+  font-weight: normal;
+  font-size: 2rem;
+}
 
-/* Header */
+h2, h3, h4, h5, h6 {
+  font-family: 'Cookie', cursive;
+  font-weight: normal;
+  color: #733224; 
+  margin: 0.5em 0;
+}
+h2 {
+  font-size: 1.75rem; /* 28px */
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+}
+
+  p {
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+}
+
+/*------------------------------------Header----------------------------------------------*/
 .header{
     background-color: #733224;
   color: #FFFFFF;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 15px 30px;
+  padding: 5px 0;
+  position: relative;
 }
 
 .headernav{
-    display: flex;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #733224d8;
+    padding: 20px 0;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+}
+
+.headernav.active{
+display: flex;
 }
 
 .headernav a{
     color: #FFFFFF;
     text-decoration: none;
     font-size: 16px;
-    text-decoration: underline;
+    text-decoration: none;
+    margin: 0 20px;
+}
+.header img{
+  height: 70px;
+}
+
+.burger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  width: 30px;
+}
+
+.burger span {
+  background-color: #FFFFFF;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+}
+/* ---------------------------------------Main-------------------------------------*/
+
+/*-----------------------------------page d'accueil----(index.html)------------------*/
+/* Section Bannière */
+.banniere {
+  position: relative;
+  height: 20vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+
+}
+
+/* Vidéo en arrière-plan */
+.banniere-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Contenu bannière */
+.banniere-content {
+  z-index: 1;
+  position: relative;
+}
+
+.banniere-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.banniere-content p {
+  font-size: 1.2rem;
+}
+
+/*---------------About-----------------------------------------------------------------------*/
+.About, .reservation, .prest, .offres {
+  margin: 40px;
+  text-align: center;
+  max-width: 1800px;
+}
+
+.About h2 .reservation h2, .prest h2, .offres h2, .service h2{
+  color: #6c3a1f;
+  margin-bottom: 10px;
+}
+
+.About img{
+  width: 295px;
+  height: 258px;
+  display: block;
+  margin: 10px auto;
+}
+
+
+.About p, .reservation p, .prest p, .offres p, .service p{
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.About a, .reservation a, .offres a, .prest a, .service a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #6c3a1f;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.prest img{
+  width: 310px;
+  height: 177px;
+}
+
+.offres img {
+  width: 79px;
+  height: 79px;
+  flex-shrink: 0;
+  display: block;
+  margin: 10px auto;
+}
+
+/*---------------avis-----------------------------------------------------------------------*/
+
+.avis-clients {
+  background-color: #6c3a1f48;
+  padding: 1rem;
+  text-align: center;
+}
+
+.avis {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/*-----------------------------page nos prestations----------------------------------------------------------*/
+.ban-prestation{
+  background-image: url(../IMG/Prestation_bannière.jpg); 
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+.service {
+  text-align: center;
+  background-color: #6c3a1f50;
+  padding: 20px;
+}
+
+
+.service img {
+    width: 300px;
+    height: 210px;
+    display: block;
+    margin: 10px auto;
+}
+
+.service a:hover {
+  background-color: #8b4726;
+}
+/*-----------------------------page a propos----------------------------------------------------------*/
+.ban-about{
+  background-image: url(../IMG/Apropos_bannière.jpg); 
+  background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+/*-----------------------------page offre et forfaits----------------------------------------------------------*/
+.ban-offres{
+  background-image: url(../IMG/offresetforfaits-bannière.jpg); 
+  background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
 }
 
 
 
-/* Body */
+/*-----------------------------page contact----------------------------------------------------------*/
 
+.mapping .map {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
 
+.mapping p {
+  margin: 10px 0;
+  text-align: justify;
+}
 
+.mapping {
+  margin: 40px;
+  text-align: center;
+}
 
-
-
-/* footer */
+/* --------------------------------footer------------------------------------- */
 .footer{
   background-color: #733224;
   color: #FFFFFF;
   display: flex;
+  flex-direction: column;
   justify-content:space-between;
   align-items:center;
   padding: 20px;
-
 }
 .footer nav a{
   color: #FFFFFF;
   text-decoration: none;
-  justify-content: space-around;
-  display: inline-flex;
-  
+  justify-content: center;
 }
+
+.footer nav{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer img{
+  height: 60px;
+  margin-bottom: 10px;
+}
+
 footer p{
   justify-content: center;
   display: flex;
 }
-.bouton{
+.footer .bouton{
   background-color: white;
-    color: #6b3b2a;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    cursor: pointer;
+  color: #733224;
+  border: none;
+  padding: 6px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*----------------------------------Responsif------------------------------------- */
+@media screen and (min-width: 768px) {
+ 
+h1 {
+    font-size: 4rem; /* 64px */
+}
+h2 {
+    font-size: 3.5rem; /* 56px */
+}
+h3 {
+    font-size: 2rem; /* 32px */
+}
+p {
+  font-size: 1.1rem; /* 17.6px */
+}
+.headernav {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    align-items: center;   
+}
+
+.headernav a {
+  margin: 0 20px;
+}
+
+.burger {
+ display: none;
+}
+
+.footer{
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+}
+.footer nav {
+  flex-direction: row;
+  gap: 30px;
+}
+
+.banniere {
+  height: 60vh;
+  width: 100%;
+}
+
+.banniere-content p {
+  font-size: 1.5rem;
+}
+
+.About img, .service img{
+  width: 600px;
+  height: 350px;
+}
+
+.prest img{
+  width: 510px;
+  height: 394px;
+}
+
+
+.About .content, .offres .content, .reservation .content, .prest .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 30px;
+  
+}
+
+.offres img{
+  width: 120px;
+  height: 120px;
+}
+
+.About p, .service p{
+  text-align: justify;
+}
+
+.About .apr, .info{
+  margin: 0 120px;  
+  text-align: justify;
+}
+
+
+.offres p, .prest p, .mapping p{
+  text-align: justify;
+}
+.prest .op, .offres .op, .service .pa{
+ margin: 0 120px;
+ text-align: center;
+}
+
+.avis {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 100px;
+  text-align: justify;
+}
+
+.reservation img{
+  width: 244px;
+  height: 159px;
+}
+
+.reservation p{
+  text-align: justify;
+  margin: 0 120px;
+}
+.service .content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 50px;
+  margin: 10px 120px;
+}
+
+.contact-section {
+  padding: 10px;
+}
+.mapping .contenue{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  margin: 0 120px;
+  gap: 30px;
 
 }
+
+}
+

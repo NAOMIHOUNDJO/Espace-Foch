@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link href="Asset/css/Style.css" rel="stylesheet" type="text/css" >
     <link rel="icon" href="Asset/ICON/favicon.png" type="image">
@@ -12,16 +12,20 @@
 
     <!--header-->
     <header class="header">
-        <img src="Asset/IMG/Logo.svg" alt="Espace Foch Logo">
+        <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+        <button class="burger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav class="headernav">
              <a href="Index.html">Accueil</a>
              <a href="Apropos.html">À propos</a>
              <a href="Prestation.html">Prestations</a>
              <a href="Offresetforfait.html">Offres et forfaits</a>
              <a href="Contact.html">Contact</a>
-        </nav>
     </header>
-    <main>
+    <main class="info">
         <h1>Politique de confidentialité</h1>
     <p>Dernière mise à jour : 25/11/2024</p>
     <p>
@@ -72,16 +76,28 @@ Téléphone : 0661572039
     </main>
     <footer>
         <div class="footer">
-            <img src="Asset/IMG/Logo.svg" alt="Espace Foch Logo">
+            <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
             <nav>
                     <a href="CGU.html">CGU</a>
                     <a href="mentionlégale.html">Mention légale</a>
                     <a href="politiquedeconfidentialité.html">Politique de confidentialité</a>
-                    <a href="Contact.html">Contact</a>  
+                    <a href="Contact.html">Contact</a>
+                    <a class="bouton-footer" href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg">Réserver</a>  
             </nav>
-            <a class="bouton" href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg">Réserver</a>
+           
         </div>
         <p>© 2024 Espace Foch - Tous droits réservés.</p>
     </footer>
+      <!-- JavaScript -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const burger = document.querySelector(".burger");
+            const nav = document.querySelector(".headernav");
+
+            burger.addEventListener("click", function () {
+                nav.classList.toggle("active"); // Affiche ou masque le menu
+            });
+        });
+    </script>
 </body>
 </html>

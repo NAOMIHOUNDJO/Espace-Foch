@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <link href="Asset/css/Style.css" rel="stylesheet" type="text/css" >
-    <link rel="icon" href="Asset/ICON/favicon.png" type="image">
-    <title>Espace foch - contact</title>
+    <meta name="description" content="Massage et bien-être à Strasbourg. Découvrez les soins personnalisés de l'Espace Foch. Réservez votre moment de détente dès maintenant !">
+    <link href="Asset/css/Style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="Asset/ICON/favicon.png" type="image/png">
+    <title>Espace Foch - Contact</title>
 </head>
 <body>
 
     <!--header-->
     <header class="header">
-        <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+        <a href="Index.html">
+            <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+        </a>
         <button class="burger" aria-label="Menu">
             <span></span>
             <span></span>
@@ -24,81 +26,84 @@
              <a href="Prestation.html">Prestations</a>
              <a href="Offresetforfait.html">Offres et forfaits</a>
              <a href="Contact.html">Contact</a>
+        </nav> 
     </header>
+
     <main>
         <h1>Contactez-nous</h1>
-    <section class="contact">
-        <p>
-            Vous avez des questions ou souhaitez prendre rendez-vous ? Contactez-nous pour plus d'informations ou pour réserver votre soin.
-        </p>
-        <div class="content">
-            <div>
-                <img src="Asset/IMG/contact.jpg" alt="image contact">
+        <section class="contact">
+            <p>Vous avez des questions ou souhaitez prendre rendez-vous ? Contactez-nous pour plus d'informations ou pour réserver votre soin.</p>
+            <div class="content">
+                <div>
+                    <img src="Asset/IMG/contact.jpg" alt="Contactez-nous">
+                </div>
+                <div class="formulaire">
+                    <h3>Formulaire de contact</h3>
+                    <form action="Contact.html" method="POST">
+                        <ul>
+                            <li>
+                                <label for="name">Nom *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message"></span>
+                            </li>
+                            <li>
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message"></span>
+                            </li>
+                            <li>
+                                <label for="subject">Sujet</label>
+                                <input type="text" id="subject" name="subject">
+                                <span class="error-message"></span>
+                            </li>
+                            <li>
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <span class="error-message"></span>
+                            </li>
+                        </ul>
+                        <button type="submit">Envoyer</button> 
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>   
+            </div>        
+        </section>
+
+        <section class="mapping">
+            <h2>Informations Pratiques</h2>
+            <div class="contenue">
+                <div class="text">
+                    <h3>Horaires d'ouverture</h3>
+                    <p>Nous sommes ravis de vous accueillir tous les jours, de 10h à 19h, dans un cadre chaleureux et apaisant.</p>
+                    <p><strong>Adresse :</strong> 37 Rue du Maréchal-Foch, 67000 Strasbourg</p>
+                    <p><strong>Email :</strong> <a href="mailto:contact@espace-foch.fr">contact@espace-foch.fr</a></p>
+                    <p><strong>Téléphone :</strong> 0661572039</p>
+                    <p>Notre centre est facilement accessible grâce aux principales lignes de tram et bus de Strasbourg. Des places de stationnement sont disponibles à proximité pour faciliter votre venue en voiture. N'hésitez pas à planifier votre visite et à profiter d'un moment de bien-être en toute sérénité !</p>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.690727905349!2d7.752020315797888!3d48.5836081792605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c8570e789a37%3A0xf66c6a56a66f92b2!2s37%20Rue%20du%20Mar%C3%A9chal%20Foch%2C%2067000%20Strasbourg!5e0!3m2!1sen!2sfr!4v1679248312215!5m2!1sen!2sfr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
-            <div class="formulaire">
-                <h3>Formulaire de contact</h3>
-                <form action="Contact.html" method="POST">
-                    <ul>
-                        <li>
-                            <label for="name">Nom *</label>
-                            <input type="text" id="name" name="name" required>
-                            <span class="error-message"></span> <!-- Zone pour le message d'erreur -->
-                        </li>
-                        <li>
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                            <span class="error-message"></span> <!-- Zone pour le message d'erreur -->
-                        </li>
-                        <li>
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" name="subject">
-                            <span class="error-message"></span>
-                        </li>
-                        <li>
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                            <span class="error-message"></span> <!-- Zone pour le message d'erreur -->
-                        </li>
-                    </ul>
-                </form>
-                <button type="submit">Envoyer</button>
-                <div id="form-message" class="form-message"></div>
-            </div>   
-        </div>        
-    </section>
-    <section class="mapping">
-        <h2>Informations Pratiques</h3>
-        <div class="contenue">
-            <div class="text">
-                <h4>Horaires d'ouverture</h4>
-                <p>Nous sommes ravis de vous accueillir tous les jours, de 10h à 19h, dans un cadre chaleureux et apaisant.</p>
-                <p><strong>Adresse :</strong> 37 Rue du Maréchal-Foch, 67000 Strasbourg</p>
-                <p><strong>Email :</strong> <a href="mailto:contact@espace-foch.fr">contact@espace-foch.fr</a></p>
-                <p><strong>Téléphone :</strong> 0661572039</p>
-                <p>Notre centre est facilement accessible grâce aux principales lignes de tram et bus de Strasbourg. Des places de stationnement sont disponibles à proximité pour faciliter votre venue en voiture.
-                    N'hésitez pas à planifier votre visite et à profiter d'un moment de bien-être en toute sérénité !</p>
-            </div>
-            <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.690727905349!2d7.752020315797888!3d48.5836081792605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c8570e789a37%3A0xf66c6a56a66f92b2!2s37%20Rue%20du%20Mar%C3%A9chal%20Foch%2C%2067000%20Strasbourg!5e0!3m2!1sen!2sfr!4v1679248312215!5m2!1sen!2sfr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-    </main>
+        </section>
+    </main>      
+
     <footer>
         <div class="footer">
-            <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+            <a href="Index.html">
+                <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+            </a>
             <nav>
-                    <a href="CGU.html">CGU</a>
-                    <a href="mentionlégale.html">Mention légale</a>
-                    <a href="politiquedeconfidentialité.html">Politique de confidentialité</a>
-                    <a href="Contact.html">Contact</a>
-                    <a class="bouton-footer" href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg">Réserver</a>  
+                <a href="CGU.html">CGU</a>
+                <a href="Mentionlegale.html">Mention légale</a>
+                <a href="politiquedeconfidentialité.html">Politique de confidentialité</a>
+                <a href="Contact.html">Contact</a>
+                <a class="bouton" href="Reservation.html">Réserver</a>  
             </nav>
-           
         </div>
         <p>© 2024 Espace Foch - Tous droits réservés.</p>
     </footer>
-      <!-- JavaScript -->
-      <script src="Asset/JS/Script.js"></script>
+
+    <!-- JavaScript -->
+    <script src="Asset/JS/Script.js"></script>
 </body>
 </html>

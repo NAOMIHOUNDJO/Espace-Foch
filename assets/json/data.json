@@ -1,0 +1,50 @@
+{
+  "salon_info": {
+    "nom": "Adresse",
+    "adresse": "37 Rue du Maréchal-Foch, 67000 Strasbourg",
+    "telephone": "+33 6 61 57 20 39",
+    "email": "contact@espace-foch.fr",
+    "horaires": {
+      "lundi": "Fermé",
+      "mardi": "10h00 - 19h00",
+      "mercredi": "10h00 - 19h00",
+      "jeudi": "10h00 - 19h00",
+      "vendredi": "10h00 - 20h00",
+      "samedi": "09h00 - 18h00",
+      "dimanche": "Fermé"
+    },
+    "paiements": [
+      "Espèces",
+      "Carte bancaire",
+      "Chèques",
+      "Paiement en ligne",
+      "Virement bancaire"
+    ],
+    "acces": {
+      "transport_en_commun": [
+        {
+          "moyen": "Tram",
+          "ligne": "A et D",
+          "station": "Homme de Fer"
+        },
+        {
+          "moyen": "Bus",
+          "ligne": "2",
+          "station": "Place Kléber"
+        }
+      ],
+      "parking": [
+        {
+          "nom": "Parking Gutenberg",
+          "distance": "5 min à pied"
+        },
+        {
+          "nom": "Parking Kleber",
+          "distance": "7 min à pied"
+        }
+      ]
+    }
+  }
+}
+
+

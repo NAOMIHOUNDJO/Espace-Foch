@@ -2,18 +2,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Massage et bien-être à Strasbourg. Découvrez les soins personnalisés de l'Espace Foch. Réservez votre moment de détente dès maintenant !">
-    <link href="Asset/css/Style.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="Asset/ICON/favicon.png" type="image/png">
-    <title>Espace Foch - Offres et forfait</title>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+    <title>Espace Foch - offres-forfaits</title>
 </head>
 <body>
-
-    <!-- Header -->
+    <!---------------------------------------------------header----------------------------------------------->
     <header class="header">
-        <a href="Index.html">
-            <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+        <a href="index.html">
+            <img src="assets/img/logo.png" alt="Espace Foch Logo">
         </a>
         <button class="burger" aria-label="Menu">
             <span></span>
@@ -21,31 +20,25 @@
             <span></span>
         </button>
         <nav class="headernav">
-            <a href="Index.html">Accueil</a>
-            <a href="Apropos.html">À propos</a>
-            <a href="Prestation.html">Prestations</a>
-            <a href="Offresetforfait.html">Offres et forfaits</a>
-            <a href="Contact.html">Contact</a>
+             <a href="index.html">Accueil</a>
+             <a href="a-propos.html">A propos</a>
+             <a href="prestation.html">Prestations</a>
+             <a href="offres-forfaits.html">Offres et forfaits</a>
+             <a href="contact.html">Contact</a>
         </nav>
     </header>
-
-    <!-- Main Content -->
     <main>
         <section class="ban-offres">
             <h1>Offres Spéciales et Forfaits</h1>
         </section>
-
-        <section class="hero">
-            <p>Profitez de nos promotions exclusives et de nos forfaits adaptés à vos besoins pour une expérience bien-être optimale.</p>
-        </section>
-
-        <section class="About">
-            <div class="content">
-                <img src="Asset/IMG/offrespéciale.jpg" alt="Massage relaxant">
-                <div class="text">
-                    <h2>Offres Spéciales</h2>
-                    <p>Découvrez nos offres spéciales, renouvelées tout au long de l'année pour vous faire profiter des meilleurs soins à prix doux. Ces promotions sont conçues pour vous offrir une expérience unique, que ce soit pour essayer un nouveau soin, partager un moment en duo ou simplement prendre soin de vous. (Consultez cette section régulièrement pour ne rien manquer.)</p>
-                    <a href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg" class="button">Profiter</a>
+        <section class="section-intro">
+            <p class="texte-intro">Profitez de nos promotions exclusives et de nos forfaits adaptés à vos besoins pour une expérience bien-être optimale.</p>
+            <h2>Offres Spéciales</h2>
+            <div class="contenu-flex">
+                <img src="assets/img/offre-speciale.jpg" alt="Massage relaxant">
+                <div class="boite-details">
+                    <p>Découvrez nos offres spéciales, renouvelées tout au long de l'année pour vous faire profiter des meilleurs soins à prix doux. Ces promotions sont conçues pour vous offrir une expérience unique, que ce soit pour essayer un nouveau soin, partager un moment en duo ou simplement prendre soin de vous.</p>
+                    <a href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg" class="bouton-action">Profiter</a>
                 </div>
             </div>
         </section>
@@ -79,17 +72,32 @@
                     </ul>
                 </div>
             </div>
-            <h2>Pourquoi Choisir Nos Forfaits ?</h2>
-            <ul>
-                <li><strong>Tarifs Réduits :</strong> Profitez de réductions avantageuses en optant pour nos forfaits.</li>
-                <li><strong>Flexibilité :</strong> Choisissez vos prestations selon vos envies et besoins.</li>
-                <li><strong>Validité Prolongée :</strong> Nos forfaits sont valables pendant 12 mois à compter de la date d'achat.</li>
-                <li><strong>Bien-être Continu :</strong> Intégrez des moments de détente réguliers dans votre routine.</li>
-            </ul>
-            <a href="Reservation.html" class="button">Acheter</a>
+        </section>
+  <!-- Section Pourquoi Nous Choisir -->
+        <section class="why-choose-us">
+            <h2>Pourquoi choisir nos forfaits?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Tarifs Réduits </h3>
+                    <p>Réductions avantageuses en optant pour nos forfaits</p>
+                </div>
+                <div class="feature">
+                    <h3>Flexibilité</h3>
+                    <p>Choisissez vos prestations selon vos envies et besoins</p>
+                </div>
+                <div class="feature">
+                    <h3>Validité Prolongée</h3>
+                    <p> Valables pendant 12 mois à compter de la date d'achat</p>
+                </div>
+                <div class="feature">
+                    <h3>Bien-être Continu</h3>
+                    <p>Des moments de détente réguliers dans votre routine</p>
+                </div>
+            </div>
+            <a href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg" class="button">Acheter</a>
         </section>
 
-        <section>
+        <section class="cadeau">
             <h2>Cartes Cadeaux</h2>
             <p>Avec nos cartes cadeaux, faites plaisir à vos proches en leur offrant un moment de relaxation unique. Choisissez entre une prestation spécifique, une offre spéciale ou encore un forfait bien-être.</p>
             <div class="prestation-category">
@@ -109,28 +117,28 @@
                     <li>Bon Cadeau Rituel 4h <span>(Sur devis)</span></li>
                 </ul>
             </div>
-            <a class="button" href="Reservation.html">Offrir</a>
+            <a class="bouton-action" href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg">Offrir</a>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer">
-            <a href="Index.html">
-                <img src="Asset/IMG/Logo.png" alt="Espace Foch Logo">
+            <a href="index.html">
+                <img src="assets/img/logo.png" alt="Espace Foch Logo">
             </a>
             <nav>
-                <a href="CGU.html">CGU</a>
-                <a href="Mentionlegale.html">Mention légale</a>
-                <a href="politiquedeconfidentialité.html">Politique de confidentialité</a>
-                <a href="Contact.html">Contact</a>
-                <a class="bouton" href="Reservation.html">Réserver</a>
+                    <a href="cgu.html">CGU</a>
+                    <a href="mentions-legales.html">Mention légale</a>
+                    <a href="politique-confidentialité.html">Politique de confidentialité</a>
+                    <a href="contact.html">Contact</a>
+                    <a class="bouton" href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg">Réserver</a>  
             </nav>
+           
         </div>
         <p>© 2024 Espace Foch - Tous droits réservés.</p>
     </footer>
-
     <!-- JavaScript -->
-    <script src="Asset/JS/Script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
+

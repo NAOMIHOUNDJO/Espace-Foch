@@ -64,6 +64,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/*-----------------------------------ajax */document.addEventListener("DOMContentLoaded", function () {
+    fetch("assets/json/data.json")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erreur lors du chargement des données JSON");
+        }
+        return response.json();
+    })
+    .then(data => {
+        const salon = data.salon_info;
+        const salonAccesContainer = document.getElementById("salon-acces");
+        const horairesPaiementContainer = document.getElementById("horaires-paiement");
+
+        // Colonne 1 : Salon + Accès
+        salonAccesContainer.innerHTML = `
+            <h3>${salon.nom}</h3>
+            <p><strong>Adresse :</strong> ${salon.adresse}</p>
+            <p><strong>Téléphone :</strong> <a href="tel:${salon.telephone}">${salon.telephone}</a></p>
+            <p><strong>Email :</strong> <a href="mailto:${salon.email}">${salon.email}</a></p>
+
+            <h3>Accès</h3>
+            <p><strong>Transports en commun :</strong></p>
+            <ul>
+                ${salon.acces.transport_en_commun.map(t => `<li>${t.moyen} - Ligne ${t.ligne} (Station : ${t.station})</li>`).join('')}
+            </ul>
+            <p><strong>Parkings à proximité :</strong></p>
+            <ul>
+                ${salon.acces.parking.map(p => `<li>${p.nom} (${p.distance})</li>`).join('')}
+            </ul>
+        `;
+
+        // Colonne 2 : Horaires + Moyens de paiement
+        horairesPaiementContainer.innerHTML = `
+            <h3>Horaires d'ouverture</h3>
+            <ul>
+                ${Object.entries(salon.horaires).map(([jour, heures]) => `<li><strong>${jour} :</strong> ${heures}</li>`).join('')}
+            </ul>
+
+            <h3>Moyens de paiement</h3>
+            <ul>
+                ${salon.paiements.map(moyen => `<li>${moyen}</li>`).join('')}
+            </ul>
+        `;
+    })
+    .catch(error => console.error("Erreur lors du chargement des informations :", error));
+});
+
+
 // ---------------------- Formulaire  Validation ----------------------
 const form = document.querySelector('.formulaire form');
 const nameInput = document.getElementById('name');
@@ -125,4 +173,3 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-// ----------------------  ----------------------

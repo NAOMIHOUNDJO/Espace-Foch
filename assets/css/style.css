@@ -13,21 +13,21 @@
 {
 	font-family:"cookie";
 	src:
-	url("../FONT/Cookie/Cookie-Regular.ttf") format('truetype');
+	url("../fonts/cookie/Cookie-Regular.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../FONT/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+  src: url('../fonts/montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../FONT/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+  src: url('../fonts/montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
@@ -54,7 +54,6 @@ h2, h3, h4, h5, h6 {
   font-family: 'Cookie', cursive;
   font-weight: normal;
   color: #733224; 
-  margin-bottom: 10px;
 }
 
 h2 {
@@ -71,17 +70,6 @@ p {
 }
 
 
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
 /*------------------------------------Header----------------------------------------------*/
 .header{
     background-color: #733224;
@@ -187,7 +175,7 @@ display: flex;
 }
 
 /*-----------------------------------page d'accueil---------------------*/
-/* Section Bannière */
+/* ---------------Section Bannière */
 .banniere {
   position: relative;
   height: 35vh; 
@@ -226,20 +214,15 @@ display: flex;
   margin: 0 auto;
 }
 
-/*--------------------------------------sections-----------------------------------------------------------------------*/
+/*--------------------------------------sections avec class communs-----------------------------------------------------------------------*/
 .About, .reservation, .prest, .offres {
   margin: 40px;
   text-align: center;
 }
 
-.About h2 .reservation h2, .prest h2, .offres h2, .service h2{
-  color: #6c3a1f;
-}
-
 .About img{
   width: 90%;
   display: block;
-  margin: 10px auto;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 .About img:hover {
@@ -252,6 +235,15 @@ display: flex;
   text-align: justify;
 }
 
+.About, .reservation, .prest, .offres {
+  margin: 40px;
+  text-align: center;
+}
+.service {
+  text-align: center;
+  background-color: #6c3a1f50;
+  padding: 20px 40px;
+}
 .About a, .reservation a, .offres a, .prest a, .service a {
   display: inline-block;
   padding: 10px 20px;
@@ -263,9 +255,8 @@ display: flex;
   transition: background-color 0.3s;
 }
 
-
-  .button:hover {
-    background-color: #FE5744; 
+.button:hover {
+  background-color: #FE5744; 
 }
 
 /*---------------section prestation----------------------------------------------------------------------*/
@@ -275,8 +266,6 @@ display: flex;
   object-fit: cover;
   height: 30vh;
 }
-
-
 
 /*---------------section offres----------------------------------------------------------------------*/
 
@@ -325,7 +314,7 @@ display: flex;
   gap: 20px; 
   max-width: 1200px; 
   margin: 0 auto; 
-  padding: 0 20px; 
+  padding: 30px; 
 }
 
 
@@ -439,6 +428,7 @@ blockquote p{
   border: 1px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  padding: 10px;
 }
 
 .faq-item:hover {
@@ -473,36 +463,13 @@ blockquote p{
 
 /*-----------------------------page nos prestations----------------------------------------------------------*/
 .ban-prestation{
-  background-image: url(../IMG/Prestation_bannière.jpg); 
+  background-image: url(../img/prestation-bannière.jpg); 
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
   padding: 100px 20px;
 }
-.service {
-  text-align: center;
-  background-color: #6c3a1f50;
-  padding: 20px 40px;
-}
-
-
-.service img {
-  width: 100%;
-  display: block;
-  margin: 10px auto;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.service img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
-}
-.service a:hover {
-  background-color: #FE5744; 
-  }
-
-
 
 .prestation-item {
   background: white;
@@ -612,43 +579,10 @@ blockquote p{
   font-weight: bold;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
-@keyframes fadeInUp {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-@keyframes slideDown {
-  from {
-      transform: translateY(-100%);
-  }
-  to {
-      transform: translateY(0);
-  }
-}
 /*-----------------------------page a propos----------------------------------------------------------*/
 .ban-about{
-  background-image: url(../IMG/Apropos_bannière.jpg); 
-  background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
-/*-----------------------------page offre et forfaits----------------------------------------------------------*/
-.ban-offres{
-  background-image: url(../IMG/offresetforfaits-bannière.jpg); 
+  background-image: url(../img/apropos-bannière.jpg); 
   background-size: cover;
     background-position: center;
     color: white;
@@ -656,6 +590,89 @@ blockquote p{
     padding: 100px 20px;
 }
 
+.service {
+  text-align: center;
+  background-color: #6c3a1f50;
+  padding: 10 20px;
+}
+
+
+.service img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.service img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+}
+.service a:hover {
+  background-color: #FE5744; 
+  }
+
+
+/*-----------------------------page offre et forfaits----------------------------------------------------------*/
+.ban-offres{
+  background-image: url(../img/offresetforfaits-bannière.jpg); 
+  background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Section Intro */
+.section-intro, .cadeau {
+  margin: 40px;
+  text-align: center;
+}
+
+.texte-intro {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.contenu-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenu-flex img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.boite-details {
+  max-width: 500px;
+  text-align: justify;
+}
+.boite-details{
+  text-align: center;
+  
+}
+.bouton-action {
+  display: inline-block;
+  background-color: #733224;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+.bouton-action:hover {
+  background-color: #FE5744;
+}
+
+.why-choose-us a{
+ margin-top: 40px ;
+}
 
 
 /*-----------------------------page contact----------------------------------------------------------*/
@@ -663,13 +680,14 @@ blockquote p{
   margin: 40px;
 }
 .contact img{
-  width: 90%;
+  width: 100%;
   display: block;
   margin: 10px auto;
+  height: 95vh;
 }
 
 .contact .content {
-  display: flex;
+  display: inline-block;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -681,7 +699,7 @@ blockquote p{
 
 .contact .formulaire {
   flex: 1;
-  max-width: 400px;
+  width: 100%;
 }
 
 .contact .formulaire ul {
@@ -779,7 +797,7 @@ blockquote p{
 
 
 /* ------------------------page reservation-------------------------------------   */
-* Reservation Section */
+
 .reservation-intro {
     text-align: center;
     padding: 40px 20px;
@@ -816,15 +834,56 @@ blockquote p{
     border: 0;
 }
 
-/* Practical Information Section */
-.reservation-info {
-    background-color: #f8f8f8;
-    text-align: center;
+
+
+/* --section AJAX JSON -----------------------*/
+
+.info-section {
+  background-color: #F1F2E9;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 900px;
 }
 
-.reservation-info p {
-    margin: 10px 0;
+.info-section h2{
+  text-align: center;
 }
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-container a{
+color: #4b2c20;
+}
+
+.info-column {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.info-column h3 {
+  border-bottom: 2px solid #FE5744;
+}
+
+.info-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.info-column ul li {
+  padding: 5px 0;
+}
+
+
+
+
 /* --------------------------------footer------------------------------------- */
 .footer{
   background-color: #733224;
@@ -855,6 +914,7 @@ blockquote p{
 footer p{
   justify-content: center;
   display: flex;
+  font-size: 1rem; 
 }
 .footer .bouton{
   background-color: white;
@@ -874,6 +934,10 @@ footer p{
 .footer nav a:hover {
   color: #FE5744;
 }
+
+
+
+
 
 /*----------------------------------Responsif------------------------------------- */
 @media screen and (min-width: 768px) {
@@ -1027,8 +1091,11 @@ p {
   margin: 10px 10%;
 }
 
-.content {
-  flex-direction: column;} 
+.contact .img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .mapping .contenue{
   display: flex;
@@ -1058,5 +1125,50 @@ p {
 .why-choose-us .features {
   grid-template-columns: repeat(4, 1fr);
 }
+
+.info-container {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.info-column {
+  flex: 1;
 }
 
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+      transform: translateY(-100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

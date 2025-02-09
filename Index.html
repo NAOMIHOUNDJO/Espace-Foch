@@ -40,7 +40,7 @@
             </div>
         </section>
          <!---------------------------------------About------------------------------------------------------>
-        <section class="About">
+        <section class="About" >
             <h2>Bienvenue dans votre Havre de paix</h2>
             <div class="content">
                <div>
@@ -50,7 +50,7 @@
                     </p> 
                     <a href="a-propos.html" class="button">À propos</a>
                </div>
-               <img src="assets/img/accueil-about.jpg" alt="image mains qui masse">
+               <img id="Abt" src="assets/img/accueil-about.jpg" alt="image mains qui masse">
            </div>
         </section>
         <!---------------------------------------Service prestation------------------------------------------------------>
@@ -220,8 +220,17 @@
                </div>
                <img src="assets/img/logo-planity.jpg" alt="Planity logo">
            </div>
+           <div class="meteo-container">
+                <div id="meteo-info">
+                    <p><strong>Il fait actuellement <span id="temperature">--°C</span> à Strasbourg</strong></p>
+                    <p>🌡 Ressenti : <span id="feels-like">--°C</span></p>
+                    <p>💧 Humidité : <span id="humidity">--%</span></p>
+                    <p>💨 Vent : <span id="wind-speed">-- km/h</span></p>
+                    <p id="massage-message">Chargement...</p>
+                </div>
+            </div>
            <a href="https://www.planity.com/espace-foch-massage-shiatsu-67000-strasbourg" class="button">Réserver maintenant</a>
-        </section>
+         </section>
     </main>
 
     <!---------------------------------------------footer------------------------------------------>
@@ -247,11 +256,39 @@
             <a href="politique-confidentialité.html" style="color:#FE5744; text-decoration: underline;">politique de confidentialité</a>.
         </p>
         <div class="buttons">
-            <button onclick="acceptCookies()">Accepter</button>
-            <button class="refuse" onclick="refuseCookies()">Refuser</button>
+            <button id="accept-cookies">Accepter tout</button>
+            <button id="refuse-cookies" class="refuse">Refuser</button>
+        </div>
+        <a href="#" id="modify-preferences" class="modify-preferences">Modifier les préférences</a>
+    </div>
+    
+    <!-- ⚙ BOÎTE DE PRÉFÉRENCES -->
+    <div class="cookie-preferences" id="cookie-preferences">
+        <h3>Gérer vos préférences de cookies</h3>
+        <div class="category">
+            <label>
+                <input type="checkbox" id="necessaryCookies" checked disabled> Cookies nécessaires
+            </label>
+            <p>Ces cookies sont essentiels pour le bon fonctionnement du site.</p>
+        </div>
+        <div class="category">
+            <label>
+                <input type="checkbox" id="analyticsCookies"> Cookies analytiques
+            </label>
+            <p>Ces cookies nous permettent de suivre l'utilisation du site et d'améliorer nos services.</p>
+        </div>
+        <div class="category">
+            <label>
+                <input type="checkbox" id="advertisingCookies"> Cookies publicitaires
+            </label>
+            <p>Ces cookies nous permettent de vous montrer des publicités personnalisées.</p>
+        </div>
+        <div class="buttons">
+            <button id="save-preferences">Sauvegarder mes préférences</button>
+            <button id="close-preferences">Fermer</button>
         </div>
     </div>
       <!-- JavaScript -->
-      <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

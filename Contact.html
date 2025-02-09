@@ -32,39 +32,32 @@
         <h1>Contactez-nous</h1>
         <section class="contact">
             <p>Vous avez des questions ou souhaitez prendre rendez-vous ? Contactez-nous pour plus d'informations ou pour réserver votre soin.</p>
-            <div class="content">
-                <div>
-                    <img src="assets/img/contact.jpg" alt="Contactez-nous">
-                </div>
-                <div class="formulaire">
+            <div class="contact-form">
+                <img src="assets/img/contact.jpg" alt="Personne tenant un téléphone">
+                
+                <div class="form-container">
                     <h3>Formulaire de contact</h3>
-                    <form action="Contact.html" method="POST">
-                        <ul>
-                            <li>
-                                <label for="name">Nom *</label>
-                                <input type="text" id="name" name="name" required>
-                                <span class="error-message"></span>
-                            </li>
-                            <li>
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                                <span class="error-message"></span>
-                            </li>
-                            <li>
-                                <label for="subject">Sujet</label>
-                                <input type="text" id="subject" name="subject">
-                                <span class="error-message"></span>
-                            </li>
-                            <li>
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                                <span class="error-message"></span>
-                            </li>
-                        </ul>
-                        <button type="submit">Envoyer</button> 
-                        <div id="form-message" class="form-message"></div>
+                    <form action="#" method="post">
+                        <label for="name">Nom*</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="subject">Sujet*</label>
+                        <input type="text" id="subject" name="subject" required>
+                        
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="privacy-policy" required>
+                            <label for="privacy-policy">J'accepte la <a href="politique-confidentialité.html" target="_blank">politique de confidentialité</a>.</label>
+                        </div>
+                        
+                        <button type="submit">Envoyer</button>
                     </form>
-                </div>   
+                </div>
             </div>        
         </section>
 

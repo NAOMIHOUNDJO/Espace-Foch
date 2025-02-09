@@ -1,58 +1,75 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.headernav');
+    const body = document.body;
 
-//----------- Menu burger : Ouvrir ou fermer le menu navigation-------------------
-const burger = document.querySelector('.burger'); // Sélectionne l'icône burger
-const nav = document.querySelector('.headernav'); // Sélectionne la barre de navigation
-
-//------------------ Fonction pour ouvrir/fermer le menu
-function toggleMenu() {
-    const isActive = nav.classList.toggle('active'); // Ajoute/retire la classe 'active'
-    burger.classList.toggle('open'); // Animation du burger
-    burger.setAttribute('aria-expanded', isActive); // Met à jour l'état aria-expanded
-}
-
-//---------------- Fonction pour fermer le menu lorsqu'on clique en dehors
-function closeMenu(event) {
-    if (!nav.contains(event.target) && !burger.contains(event.target)) {
-        nav.classList.remove('active');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', false); // Réinitialise l'état aria-expanded
+    function toggleMenu() {
+        const isActive = nav.classList.toggle('active');
+        burger.classList.toggle('open');
+        body.classList.toggle('no-scroll', isActive);
     }
-}
 
-//ouvrir/fermer le menu
-burger.addEventListener('click', toggleMenu);
-
-// Événement pour fermer le menu en cliquant à l'extérieur
-document.addEventListener('click', closeMenu);
-
-// Ferme le menu si la taille d'écran dépasse 768px
-const mediaQuery = window.matchMedia('(min-width: 768px)');
-mediaQuery.addEventListener('change', () => {
-    if (mediaQuery.matches) {
-        nav.classList.remove('active');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', false);
+    function closeMenu(event) {
+        if (nav.classList.contains("active") && !event.target.closest(".headernav") && !event.target.closest(".burger")) {
+            nav.classList.remove("active");
+            burger.classList.remove("open");
+            body.classList.remove("no-scroll");
+        }
     }
+
+    burger.addEventListener('click', toggleMenu);
+    document.addEventListener('click', closeMenu);
 });
 
-//---------------------- cookies
+
+
+//---------------------------------cookies------------------------ 
 document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage.getItem("cookiesAccepted") && !localStorage.getItem("cookiesRefused")) {
-        document.getElementById("cookie-banner").style.display = "flex";
-    }
+    const cookieBanner = document.getElementById("cookie-banner");
+    const cookiePreferences = document.getElementById("cookie-preferences");
+
+    // Afficher le bandeau au chargement
+    cookieBanner.style.display = "flex"; 
+
+    // Accepter tous les cookies
+    document.getElementById("accept-cookies").addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        localStorage.setItem("analyticsCookies", "true");
+        localStorage.setItem("advertisingCookies", "true");
+        cookieBanner.style.display = "none";
+    });
+
+    // Refuser tous les cookies
+    document.getElementById("refuse-cookies").addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "false");
+        localStorage.setItem("analyticsCookies", "false");
+        localStorage.setItem("advertisingCookies", "false");
+        cookieBanner.style.display = "none";
+    });
+
+    // Ouvrir les préférences
+    document.getElementById("modify-preferences").addEventListener("click", () => {
+        cookiePreferences.style.display = "block";
+    });
+
+    // Fermer les préférences
+    document.getElementById("close-preferences").addEventListener("click", () => {
+        cookiePreferences.style.display = "none";
+    });
+
+    // Sauvegarder les préférences
+    document.getElementById("save-preferences").addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        localStorage.setItem("analyticsCookies", document.getElementById("analyticsCookies").checked);
+        localStorage.setItem("advertisingCookies", document.getElementById("advertisingCookies").checked);
+        cookieBanner.style.display = "none";
+        cookiePreferences.style.display = "none";
+    });
 });
 
-function acceptCookies() {
-    localStorage.setItem("cookiesAccepted", true);
-    document.getElementById("cookie-banner").style.display = "none";
-}
 
-function refuseCookies() {
-    localStorage.setItem("cookiesRefused", true);
-    document.getElementById("cookie-banner").style.display = "none";
-}
 
-//---------------------faq
+//-----------------------------------faq------------------------ 
 document.addEventListener("DOMContentLoaded", () => {
     const faqItems = document.querySelectorAll(".faq-item h3");
 
@@ -64,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/*-----------------------------------ajax */document.addEventListener("DOMContentLoaded", function () {
+//-----------------------------------ajax------ 
+document.addEventListener("DOMContentLoaded", function () {
     fetch("assets/json/data.json")
     .then(response => {
         if (!response.ok) {
@@ -77,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const salonAccesContainer = document.getElementById("salon-acces");
         const horairesPaiementContainer = document.getElementById("horaires-paiement");
 
-        // Colonne 1 : Salon + Accès
+        // Colonne 1 : Salon et Accès
         salonAccesContainer.innerHTML = `
             <h3>${salon.nom}</h3>
             <p><strong>Adresse :</strong> ${salon.adresse}</p>
@@ -95,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </ul>
         `;
 
-        // Colonne 2 : Horaires + Moyens de paiement
+        // Colonne 2 : Horaires et Moyens de paiement
         horairesPaiementContainer.innerHTML = `
             <h3>Horaires d'ouverture</h3>
             <ul>
@@ -111,65 +129,98 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => console.error("Erreur lors du chargement des informations :", error));
 });
 
+// ---------------------- API ----------------------
+const apiKey = '9e39ae68aa7ea0020fe369bf9feb4cda';
+const city = 'Strasbourg';
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fr`;
 
-// ---------------------- Formulaire  Validation ----------------------
-const form = document.querySelector('.formulaire form');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-const messageInput = document.getElementById('message');
-const formMessage = document.getElementById('form-message');
+async function getWeather() {
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error("Erreur de récupération de la météo");
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    let isValid = true;
+        const data = await response.json();
+        const temperature = Math.round(data.main.temp);
+        const feelsLike = Math.round(data.main.feels_like);
+        const humidity = data.main.humidity;
+        const windSpeed = Math.round(data.wind.speed * 3.6); // Convertir m/s en km/h
 
-    clearErrors();
+        document.getElementById("temperature").textContent = `${temperature}°C`;
+        document.getElementById("feels-like").textContent = `${feelsLike}°C`;
+        document.getElementById("humidity").textContent = `${humidity}%`;
+        document.getElementById("wind-speed").textContent = `${windSpeed} km/h`;
 
-    if (nameInput.value.trim() === '') {
-        showError(nameInput, 'Veuillez entrer votre nom.');
-        isValid = false;
+        // message en fonction de la température
+        let message = "";
+        if (temperature >= 18 && temperature <= 28) {
+            message = "☀️ Une journée idéale pour un massage relaxant.";
+        } else if (temperature < 18) {
+            message = "❄️ Il fait frais... Un massage réchauffant serait parfait.";
+        } else {
+            message = "🔥 Il fait chaud ! Un massage rafraîchissant vous ferait du bien.";
+        }
+
+        document.getElementById("massage-message").textContent = message;
+    } catch (error) {
+        document.getElementById("temperature").textContent = "--°C";
+        document.getElementById("feels-like").textContent = "--°C";
+        document.getElementById("humidity").textContent = "--%";
+        document.getElementById("wind-speed").textContent = "-- km/h";
+        document.getElementById("massage-message").textContent = "❌ Impossible de récupérer la météo.";
+        console.error(error);
     }
+}
 
-    if (!validateEmail(emailInput.value)) {
-        showError(emailInput, 'Veuillez entrer un email valide.');
-        isValid = false;
-    }
+// météo dès l'ouverture de la page
+document.addEventListener("DOMContentLoaded", getWeather);
 
-    if (messageInput.value.trim() === '') {
-        showError(messageInput, 'Veuillez entrer votre message.');
-        isValid = false;
-    }
+//----------------------------------formualaire------------------
 
-    if (isValid) {
-        formMessage.textContent = 'Votre message a été envoyé avec succès!';
-        formMessage.classList.add('success');
-        formMessage.classList.remove('error');
-        formMessage.style.display = 'block';
-        form.reset();
-    } else {
-        formMessage.textContent = 'Veuillez corriger les erreurs ci-dessus.';
-        formMessage.classList.add('error');
-        formMessage.classList.remove('success');
-        formMessage.style.display = 'block';
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const subjectInput = document.getElementById("subject");
+    const messageInput = document.getElementById("message");
+    const privacyCheckbox = document.getElementById("privacy-policy");
+
+    form.addEventListener("submit", function (event) {
+        let isValid = true;
+        let errorMessage = "";
+
+        // ✅ Vérifie que tous les champs sont remplis
+        if (!nameInput.value.trim() || !emailInput.value.trim() || !subjectInput.value.trim() || !messageInput.value.trim()) {
+            errorMessage += "Veuillez remplir tous les champs obligatoires.\n";
+            isValid = false;
+        }
+
+        // ✅ Vérifie si l'email est valide
+        if (!validateEmail(emailInput.value)) {
+            errorMessage += "Veuillez entrer une adresse email valide.\n";
+            isValid = false;
+        }
+
+        // ✅ Vérifie que la case de politique de confidentialité est cochée
+        if (!privacyCheckbox.checked) {
+            errorMessage += "Vous devez accepter la politique de confidentialité avant d'envoyer le formulaire.\n";
+            isValid = false;
+        }
+
+        if (!isValid) {
+            alert(errorMessage); // Affiche les erreurs
+            event.preventDefault(); // Bloque l'envoi du formulaire
+            return;
+        }
+
+        // ✅ Simulation d'un envoi (remplace par AJAX si besoin)
+        event.preventDefault();
+        alert("Votre message a été envoyé avec succès !");
+        form.reset(); // Réinitialise le formulaire
+    });
+
+    // 📌 Fonction pour vérifier le format de l'email
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
 });
-
-function showError(input, message) {
-    const errorSpan = input.nextElementSibling;
-    errorSpan.textContent = message;
-    errorSpan.style.display = 'block';
-}
-
-function clearErrors() {
-    const errorMessages = document.querySelectorAll('.error-message');
-    errorMessages.forEach(span => {
-        span.textContent = '';
-        span.style.display = 'none';
-    });
-}
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-}
-

@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.headernav');
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".headernav");
     const body = document.body;
 
+    if (!burger || !nav) {
+        console.warn("⚠️ L'élément .burger ou .headernav est introuvable dans le DOM.");
+        return;
+    }
+
     function toggleMenu() {
-        const isActive = nav.classList.toggle('active');
-        burger.classList.toggle('open');
-        body.classList.toggle('no-scroll', isActive);
+        const isActive = nav.classList.toggle("active");
+        burger.classList.toggle("open");
+        body.classList.toggle("no-scroll", isActive);
     }
 
     function closeMenu(event) {
@@ -17,8 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    burger.addEventListener('click', toggleMenu);
-    document.addEventListener('click', closeMenu);
+    burger.addEventListener("click", toggleMenu);
+    document.addEventListener("click", closeMenu);
+
+    // Empêcher la fermeture du menu lors d'un clic sur lui-même
+    nav.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
 });
 
 

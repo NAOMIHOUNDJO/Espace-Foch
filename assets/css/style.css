@@ -116,21 +116,40 @@ display: flex;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 20px;
-  width: 30px;
+  height: 24px;
+  width: 35px;
+  z-index: 1001;
+  position: relative;
 }
 
 .burger span {
+  display: block;
   background-color: #FFFFFF;
-  height: 3px;
+  height: 4px;
   width: 100%;
   border-radius: 2px;
+  transition: all 0.3s ease-in-out;
 }
 
 .no-scroll {
   overflow: hidden;
 }
 
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.headernav.active {
+  right: 0;
+}
 /* ---------------------------------------cookies-------------------------------------*/
 .cookie-banner {
   position: fixed;

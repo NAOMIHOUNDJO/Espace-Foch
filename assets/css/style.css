@@ -6,7 +6,7 @@
   --background-color: #F1F2E9;
   --text-color: #4b2c20;
   --font-primary: 'Montserrat', sans-serif;
-  --font-secondary: 'Cookie', cursive;
+  --font-secondary: 'Cookie';
 }
 
 @font-face
@@ -72,7 +72,7 @@ p {
 
 /*------------------------------------Header----------------------------------------------*/
 .header{
-    background-color: #733224;
+  background-color: #733224;
   color: #FFFFFF;
   display: flex;
   justify-content: space-around;
@@ -96,6 +96,7 @@ p {
 
 .headernav.active{
 display: flex;
+right: 0;
 }
 
 .headernav a{
@@ -135,21 +136,6 @@ display: flex;
   overflow: hidden;
 }
 
-.burger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.burger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-.headernav.active {
-  right: 0;
-}
 /* ---------------------------------------cookies-------------------------------------*/
 .cookie-banner {
   position: fixed;

@@ -1,36 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector(".headernav");
-    const body = document.body;
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.headernav');
 
-    if (!burger || !nav) {
-        console.warn("⚠️ L'élément .burger ou .headernav est introuvable dans le DOM.");
-        return;
-    }
-
-    function toggleMenu() {
-        const isActive = nav.classList.toggle("active");
-        burger.classList.toggle("open");
-        body.classList.toggle("no-scroll", isActive);
-    }
-
-    function closeMenu(event) {
-        if (nav.classList.contains("active") && !event.target.closest(".headernav") && !event.target.closest(".burger")) {
-            nav.classList.remove("active");
-            burger.classList.remove("open");
-            body.classList.remove("no-scroll");
-        }
-    }
-
-    burger.addEventListener("click", toggleMenu);
-    document.addEventListener("click", closeMenu);
-
-    // Empêcher la fermeture du menu lors d'un clic sur lui-même
-    nav.addEventListener("click", (event) => {
-        event.stopPropagation();
+    burger.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        burger.classList.toggle('open');
     });
 });
-
 
 
 //---------------------------------cookies------------------------ 
@@ -184,7 +160,7 @@ async function getWeather() {
 // météo dès l'ouverture de la page
 document.addEventListener("DOMContentLoaded", getWeather);
 
-//----------------------------------formualaire------------------
+//----------------------------------formulaire------------------
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
@@ -198,19 +174,19 @@ document.addEventListener("DOMContentLoaded", function () {
         let isValid = true;
         let errorMessage = "";
 
-        // ✅ Vérifie que tous les champs sont remplis
+        //  Vérifie que tous les champs sont remplis
         if (!nameInput.value.trim() || !emailInput.value.trim() || !subjectInput.value.trim() || !messageInput.value.trim()) {
             errorMessage += "Veuillez remplir tous les champs obligatoires.\n";
             isValid = false;
         }
 
-        // ✅ Vérifie si l'email est valide
+        //  Vérifie si l'email est valide
         if (!validateEmail(emailInput.value)) {
             errorMessage += "Veuillez entrer une adresse email valide.\n";
             isValid = false;
         }
 
-        // ✅ Vérifie que la case de politique de confidentialité est cochée
+        //  Vérifie que la case de politique de confidentialité est cochée
         if (!privacyCheckbox.checked) {
             errorMessage += "Vous devez accepter la politique de confidentialité avant d'envoyer le formulaire.\n";
             isValid = false;
@@ -222,13 +198,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // ✅ Simulation d'un envoi (remplace par AJAX si besoin)
+        //  Simulation d'un envoi (remplace par AJAX si besoin)
         event.preventDefault();
         alert("Votre message a été envoyé avec succès !");
         form.reset(); // Réinitialise le formulaire
     });
 
-    // 📌 Fonction pour vérifier le format de l'email
+    //  Fonction pour vérifier le format de l'email
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);

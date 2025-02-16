@@ -876,6 +876,9 @@ button:hover {
   margin: 10px 0;
   text-align: justify;
 }
+.mapping a{
+  color: #4b2c20;
+}
 
 .mapping {
   margin: 40px;
@@ -890,34 +893,6 @@ button:hover {
 .map iframe {
   width: 100%;
   height: 30dvh;
-}
-
-.error-message {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 5px;
-}
-
-.form-message {
-  margin-top: 20px;
-  font-size: 1em;
-  padding: 10px;
-  border-radius: 5px;
-  display: none; 
-}
-
-.form-message.success {
-  display: block;
-  color: green;
-  background-color: #eaffea;
-  border: 1px solid green;
-}
-
-.form-message.error {
-  display: block;
-  color: red;
-  background-color: #ffeaea;
-  border: 1px solid red;
 }
 
 
